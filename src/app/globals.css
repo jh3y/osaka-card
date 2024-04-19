@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+:root {
+  --x: 0;
+  --y: 0;
+}
+
+html {
+  color-scheme: light only;
+}
+
+body {
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'AOS Icons', 'Helvetica Neue',
+    Helvetica, Arial, sans-serif, system-ui;
+}
+
+body::before {
+  --line: color-mix(in lch, canvasText 25%, transparent);
+  --size: 60px;
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      0 -5vmin / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 0 -5vmin / var(
+        --size
+      ) var(--size);
+  mask: linear-gradient(-15deg, transparent 60%, white);
+  top: 0;
+  z-index: -1;
+}
+
+/* Asset Parallax */
+.assets > img:first-of-type {
+  object-position: calc(-50% + (clamp(-1, var(--x), 1) * 30px)) calc(43% + (clamp(-1, var(--y), 1) * -20px));
+}
+
+.assets > img:last-of-type {
+  object-position: calc(-50% + (clamp(-1, var(--x), 1) * 40px)) calc(43% + (clamp(-1, var(--y), 1) * -40px));
+}
+
+.assets h3 {
+  translate: calc(-50% + (clamp(-1, var(--x), 1) * -30px)) calc(clamp(-1, var(--y), 1) * -20px);
+}
+
+.content p:first-of-type::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 1rem);
+  left: 50%;
+  width: 6ch;
+  background: canvas;
+  height: 1px;
+  translate: -50% 0;
+}
+
+/* Blurring */
+.blurs .layer {
+  --blur: calc(
+    sin(((var(--layers) - var(--index)) / var(--layers)) * 45deg) * 30
+  );
+  --stop: calc(
+    sin(((var(--index)) / var(--layers)) * 45deg) * 35
+  );
+  backdrop-filter: blur(calc(var(--blur) * 1px));
+  mask: radial-gradient(
+    140% 130% at 45% 90%,
+    #fff 15%,
+    #0000 calc((15 + var(--stop)) * 1%)
+  );
+}
+
+.bear-link {
+  color: canvasText;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 48px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  opacity: 0.8;
+}
+
+.bear-link:is(:hover, :focus-visible) {
+  opacity: 1;
+}
+.bear-link svg {
+  width: 75%;
+}
