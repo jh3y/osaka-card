@@ -8,9 +8,7 @@ interface DeviceOrientationEventiOS extends DeviceOrientationEvent {
   requestPermission?: () => Promise<'granted' | 'denied'>;
 }
 
-
 export function Card () {
-  // Hook up mousemove
   React.useEffect(() => {
     const UPDATE = ({ x, y }: { x: number, y: number }) => {
       gsap.set(document.documentElement, {
@@ -51,6 +49,10 @@ export function Card () {
       }
     };
     document.body.addEventListener('click', initiate, { once: true })
+    return () => {
+      document.body.removeEventListener('click', initiate)
+      window.removeEventListener('deviceorientation', handleOrientation)
+    }
   }, [])
 
   return (
