@@ -58,9 +58,9 @@ export function Card () {
   return (
     <article className="w-[600px] aspect-[2/1.1] max-h-[calc(100svh-2rem)] relative overflow-hidden max-w-[calc(100%-2rem)] portrait:min-h-[330px]">
       <div className="assets absolute inset-0 rounded-[4em] overflow-hidden">
-        <img className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[660px] max-w-[unset] object-cover select-none pointer-events-none saturate-[1.5] brightness-[0.9]" src="https://assets.codepen.io/605876/osaka-sky.jpeg" alt="" />
+        <img className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[660px] max-w-[unset] object-cover select-none pointer-events-none saturate-[1.5] brightness-[0.9]" src="https://assets.codepen.io/605876/do-not-copy-osaka-sky.jpeg" alt="" />
         <h3 className={`${beba.className} absolute left-1/2 top-[6%] m-0 text-[8rem] uppercase text-[canvas]`}>Osaka</h3>
-        <img className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[660px] max-w-[unset] object-cover select-none pointer-events-none" src="https://assets.codepen.io/605876/osaka-tower.png" alt="" />
+        <img className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[660px] max-w-[unset] object-cover select-none pointer-events-none" src="https://assets.codepen.io/605876/do-not-copy-osaka-tower.png" alt="" />
       </div>
       <div className="blurs absolute inset-0 [--layers:5]">
         <div>
